@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11-guess</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <p>Gæt et tal imellem 1 og 20</p>
+    <input type="text" id="gaet">
+    <br>
+    <br>
+    <button>Klik her og se dit gæt er rigtigt i konsollen</button>
+
+    <script>
+        let tal = Math.round(Math.random() * 10) + Math.round(Math.random() * 10);
+
+
+        document.querySelector("button").addEventListener("click", buttonClick)
+
+
+        function buttonClick() {
+            console.log("klik på knap");
+
+
+            let gaet = document.querySelector("#gaet").value;
+            console.log(gaet);
+
+
+
+            if (isNaN(gaet)) {
+                resultat = "Skriv et tal og ikke bogstaver"
+            } else if (gaet <= 0) {
+                resultat = "Dit tal skal være over 0"
+            } else if (gaet > 20) {
+                resultat = "Dit tal skal være under 20"
+            } else if (gaet != tal) {
+                resultat = "Forkert! Prøv igen"
+            } else if (gaet == tal) {
+                resultat = "Korrekt gættet"
+            }
+
+            ;
+
+
+            console.log(`${resultat}`);
+
+        }
+    </script>
+
+</body></html>
