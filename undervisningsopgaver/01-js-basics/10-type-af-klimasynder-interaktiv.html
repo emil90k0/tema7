@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-arealtest</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <p>Angiv antal timer</p>
+    <input type="text" id="tid">
+    <br>
+    <br>
+    <button>Klik her og se din co2 udledning i konsollen</button>
+
+    <script>
+        let co2Maengde = 109;
+        let co2 = tid * co2Maengde;
+
+        let resultat = `På din flyrejse har du udledt ${co2} kg co2`;
+
+
+        document.querySelector("button").addEventListener("click", buttonClick)
+
+
+        function buttonClick() {
+            console.log("klik på knap");
+
+
+            let tid = document.querySelector("#tid").value;
+            let resultat = tid * co2Maengde;
+
+
+
+            if (isNaN(resultat)) {
+                resultat = "en stor mængde co2 garanteret, men vi skal bruge nogle tal for at give dig et antal";
+            } else if (resultat <= 0) {
+                resultat = "0"
+            }
+
+            ;
+
+
+            console.log(`På din flyrejse har du udledt ${resultat} kg co2`);
+
+        }
+    </script>
+
+</body></html>
