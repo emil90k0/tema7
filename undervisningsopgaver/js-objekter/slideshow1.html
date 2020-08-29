@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slideshow1</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Slideshow 1</h1>
+    <img>
+    <button></button>
+    <script>
+        window.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("content loaded");
+
+            const images = [
+                "img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8"
+            ];
+            const button = document.querySelector("button");
+
+            const image = document.querySelector("img");
+
+            let counter = 1;
+
+            button.addEventListener("click", () => {
+                counter++;
+                console.log(counter);
+
+                if (counter >= 8) {
+                    console.log("8 eller større!");
+
+                    image.src = "img" + counter + ".png";
+                    console.log(image.src);
+
+                    counter = 0;
+
+                    button.textContent = "Forfra";
+                } else {
+                    button.textContent = "Videre";
+
+                    image.src = "img" + counter + ".png";
+                    console.log(image.src);
+                }
+
+            });
+        }
+    </script>
+</body></html>
