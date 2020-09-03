@@ -13,49 +13,59 @@
             grid-gap: 10px;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
-
         }
-
 
 
         article {
             border: 1px solid #333;
             padding: 10px;
-            background-color: burlywood;
+            background-color: #fcfcfc;
             text-align: center;
-            border-radius: 25px;
             font-family: fantasy;
         }
 
         img {
-            max-width: 30%;
-        }
-
-        h2 {
-            color: dimgrey;
+            max-width: 80%;
 
         }
+
+
 
         header {
             padding: 40px;
             text-align: center;
-
+            margin: 10px;
 
         }
 
         button {
-            padding: 20px;
+            padding: 5px;
+            margin: 10px;
             font-family: fantasy;
             font-weight: 900;
-
-
+            background-color: white;
+            font-family: cy, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1em;
+            border: none;
+            border-bottom: 1px solid white;
 
         }
+
+        button:hover {
+            border-bottom: 1px solid grey;
+        }
+
+
 
         .valgt {
             color: crimson;
         }
 
+        #popup img {
+            max-width: 50%;
+        }
 
         #popup {
             position: fixed;
@@ -69,11 +79,10 @@
 
         #popup article {
             position: fixed;
-            top: 50%;
+            top: 40%;
             left: 50%;
             margin: 4rem auto;
             transform: translate(-50%, -50%);
-            border-radius: 25px;
             padding: 12px;
             background-color: white;
             width: 80vw;
@@ -93,6 +102,43 @@
             border-radius: 5px;
             padding .5em;
 
+
+            font-family: prestige-elite-std, monospace;
+            font-weight: 200;
+            font-style: normal;
+
+        }
+
+        h4 {
+            font-family: cy, sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            display: flex;
+            justify-content: center;
+            margin-top: 8vw;
+            font-size: 2em;
+        }
+
+
+        h1 {
+            font-family: cy, sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            display: flex;
+            justify-content: center;
+            font-size: 1.5em;
+        }
+
+        p {
+            font-family: prestige-elite-std, monospace;
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        h2 {
+            font-family: prestige-elite-std, monospace;
+            font-weight: 600;
+            font-style: normal;
         }
 
     </style>
@@ -107,10 +153,9 @@
             <h2 class="navn">NAVN</h2>
             <p class="kort">kort</p>
             <p class="kategori">kategori</p>
-            <p class="pris">Pris</p>
             <p class="lang">lang</p>
             <p class="oprindelse">oprindelse</p>
-            <p class="billede">billede</p>
+            <p class="pris">Pris</p>
             <img src="" alt="">
         </article>
     </div>
@@ -121,10 +166,8 @@
             <h2 class="navn">NAVN</h2>
             <p class="kort">kort</p>
             <p class="kategori">kategori</p>
-            <p class="pris">Pris</p>
-            <p class="lang">lang</p>
             <p class="oprindelse">oprindelse</p>
-            <p class="billede">billede</p>
+            <p class="pris">Pris</p>
             <img src="" alt="">
         </article>
     </template>
@@ -132,15 +175,21 @@
 
     <main>
 
-        <h1>Alle</h1>
+        <h4>Bistro Babushka</h4>
+
+
         <header>
             <button class="filter valgt" data-kategori="alle">Alle</button>
-            <button class="filter" data-kategori="forret">Forret</button>
-            <button class="filter" data-kategori="hovedret">Hovedret</button>
-            <button class="filter" data-kategori="sides">Sides</button>
-            <button class="filter" data-kategori="dessert">Dessert</button>
+            <button class="filter" data-kategori="forretter">Forret</button>
+            <button class="filter" data-kategori="hovedretter">Hovedret</button>
+            <button class="filter" data-kategori="sideorders">Sides</button>
+            <button class="filter" data-kategori="desserter">Dessert</button>
             <button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
         </header>
+
+
+        <h1>Alle</h1>
+
 
         <section id="list"></section>
 
@@ -179,9 +228,8 @@
                     minKlon.querySelector("img").src = `large/${person.gsx$billede.$t}.jpg`;
                     minKlon.querySelector(".kort").textContent = person.gsx$kort.$t;
                     minKlon.querySelector(".kategori").textContent = person.gsx$kategori.$t;
-                    minKlon.querySelector(".pris").textContent = person.gsx$pris.$t;
+                    minKlon.querySelector(".pris").textContent = person.gsx$pris.$t + ',-';
                     minKlon.querySelector(".oprindelse").textContent = person.gsx$oprindelse.$t;
-                    minKlon.querySelector(".lang").textContent = person.gsx$lang.$t;
 
 
 
@@ -205,7 +253,7 @@
             popup.querySelector("img").src = `large/${person.gsx$billede.$t}.jpg`;
             popup.querySelector(".kort").textContent = person.gsx$kort.$t;
             popup.querySelector(".kategori").textContent = person.gsx$kategori.$t;
-            popup.querySelector(".pris").textContent = person.gsx$pris.$t;
+            popup.querySelector(".pris").textContent = person.gsx$pris.$t + ',-';
             popup.querySelector(".oprindelse").textContent = person.gsx$oprindelse.$t;
             popup.querySelector(".lang").textContent = person.gsx$lang.$t;
 
